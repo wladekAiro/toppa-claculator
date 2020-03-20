@@ -1,5 +1,10 @@
-const sum = (a, b, ...moreNumbers) => [a, b, ...moreNumbers].map((n) => parseInt(n, 10))
-    .reduce((total, n) => total + n, 0);
+const sum = (a, b, ...moreNumbers) => {
+    const numbers = [a, b, ...moreNumbers]
+        .map((n) => parseInt(n, 10))
+        .filter((n) => !Number.isNaN(n));
+
+    return numbers.reduce((total, n) => total + n, 0);
+};
 
 export default sum;
 
